@@ -32,10 +32,11 @@ class StoreTeamRequest extends FormRequest
             'name' => [
                 'required',
                 'min:3',
-                'max:10',
+                'max:20',
                 Rule::unique('teams')->ignore($this->id),
             ],
             'member' => 'required',
+            'user_id' => 'required',
         ];
     }
 }

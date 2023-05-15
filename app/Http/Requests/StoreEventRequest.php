@@ -38,6 +38,7 @@ class StoreEventRequest extends FormRequest
             'start_time' => 'required',
             'end_time' => 'required',
             'description' => 'required',
+            'user_id' => 'required',
         ];
     }
 }

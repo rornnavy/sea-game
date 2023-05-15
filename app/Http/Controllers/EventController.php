@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Resources\ShowEvenetResource;
 use App\Models\Event;
-use App\Models\EventTeam;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
@@ -72,14 +71,5 @@ class EventController extends Controller
     public function search($name) {
         $events = Event::where('name', 'like', "%$name%")->get();
         return response()->json($events);
-    }
-    public function eventTeam(){
-
-        $eventTeam =EventTeam::create([
-            'event_id' => request('event_id'),
-            'team_id' => request('team_id'),
-        ]);
-
-        return response()->json(['success'=>true,'date'=> $eventTeam], 200);
     }
 }

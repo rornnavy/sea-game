@@ -50,6 +50,3 @@ Route::post("/teams", [TeamController::class, 'store']);
 Route::get("/teams/{id}", [TeamController::class, 'show']);
 Route::put("/teams/{id}", [TeamController::class, 'update']);
 Route::delete("/teams/{id}", [TeamController::class, 'destroy']);
-
-//Route EventTeam
-Route::post("/eventTeams", [EventController::class, 'eventTeam']);

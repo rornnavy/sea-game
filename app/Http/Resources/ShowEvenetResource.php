@@ -20,6 +20,7 @@ class ShowEvenetResource extends JsonResource
             'start_time'=>$this->start_time,
             'end_time'=>$this->end_time,
             'description'=>$this->description,
+            'created_by_id'=>$this->user,
             'ticket'=>$this->ticket,
             'team'=>$this->team,
         ];

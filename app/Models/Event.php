@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Event extends Model
@@ -14,6 +15,7 @@ class Event extends Model
         'start_time',
         'end_time',
         'description',
+        'user_id',
     ];
     public static function store($request, $id = null)
     {
@@ -22,9 +24,12 @@ class Event extends Model
             'start_time',
             'end_time',
             'description',
+            'user_id',
         );
         
         $event = self::updateOrCreate(['id' => $id], $event);
+        $events = request('teams');
+        $event->team()->sync($events);
         return $event;
     }
 
@@ -32,9 +37,13 @@ class Event extends Model
         
         return $this->hasMany(Ticket::class);
     }
+    public function user():BelongsTo{
+        
+        return $this->BelongsTo(User::class);
+    }
     public function team(){
         
-        return $this->belongsToMany(Team::class, 'event_teams');
+        return $this->belongsToMany(Team::class, 'event_teams')->withTimestamps();
     }
 
 }

@@ -57,5 +57,13 @@ class User extends Authenticatable
         
         return $this->hasMany(Ticket::class);
     }
+    public function event():HasMany{
+        
+        return $this->hasMany(Event::class);
+    }
+    public function team():HasMany{
+        
+        return $this->hasMany(Team::class);
+    }
 
 }

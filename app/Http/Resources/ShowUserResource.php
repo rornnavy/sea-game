@@ -20,7 +20,8 @@ class ShowUserResource extends JsonResource
             'email'=>$this->email,
             'password'=>$this->password,
             'ticket'=>$this->ticket,
+            'created_team'=>$this->team,
+            'created_event'=>$this->event,
         ];
-
     }
 }

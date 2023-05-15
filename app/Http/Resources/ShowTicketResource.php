@@ -16,11 +16,11 @@ class ShowTicketResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'user_id'=>$this->user,
-            'event_id'=>$this->event,
             'start_time'=>$this->start_time,
             'end_time'=>$this->end_time,
             'zone'=>$this->zone,
+            'user_id'=>$this->user,
+            'event_id'=>$this->event,
         ];
     }
 }

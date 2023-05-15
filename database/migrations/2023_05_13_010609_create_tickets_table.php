@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id(); 
-            $table->string('start_time');
-            $table->string('end_time');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
             $table->string('zone');
 
             $table->unsignedBigInteger('user_id');
