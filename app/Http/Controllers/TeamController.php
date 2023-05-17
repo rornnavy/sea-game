@@ -37,6 +37,8 @@ class TeamController extends Controller
     public function show(string $id)
     {
         $team = Team::find($id);
+        
+        $team = new ShowTeamResource($team);
      
         return response()->json(['success' =>true, 'data' => $team], 200);
     }

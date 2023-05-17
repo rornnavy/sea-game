@@ -40,9 +40,10 @@ class EventController extends Controller
     {
         $event = Event::find($id);
 
-        $event = new ShowEvenetResource($event);
+        $event =new ShowEvenetResource($event);
 
         return response()->json(['success' =>true, 'data' => $event], 200);
+    
     }
 
     /**
@@ -69,7 +70,9 @@ class EventController extends Controller
         return response()->json(['success' =>true, 'data' =>"deleted successful"], 200);
     }
     public function search($name) {
+
         $events = Event::where('name', 'like', "%$name%")->get();
+
         return response()->json($events);
     }
 }

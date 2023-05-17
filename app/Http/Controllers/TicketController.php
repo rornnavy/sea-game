@@ -66,6 +66,6 @@ class TicketController extends Controller
 
         $ticket->delete();
     
-        return response()->json(['success' =>true, 'data' => $ticket], 200);
+        return response()->json(['success' =>true, 'data' => "deleted successful "], 200);
     }
 }
